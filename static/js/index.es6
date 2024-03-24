@@ -76,7 +76,7 @@ const vmMirList = new Vue({
 			if (mir.url !== undefined) {
 				return mir.url
 			}
-			return `{{ site.base }}/${mir.name}/`
+			return `/${mir.name}/`
 		},
 		refreshMirrorList() {
 			// do nothing if the tab is not visible
