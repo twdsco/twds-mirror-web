@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-{% capture metaDesc %}{{ page.mirrorid }} 使用帮助{% endcapture %}
-	{% include head.html cattitle="镜像站使用帮助" metaDesc=metaDesc %}
+{% capture metaDesc %}{{ page.mirrorid }} Usage Help{% endcapture %}
+	{% include head.html cattitle="Mirror Site Usage Help" metaDesc=metaDesc %}
 <body>
 	{% include nav.html %}
 
@@ -37,7 +37,7 @@
 				<div class="visible-xs">
 					<form class="form-inline">
 						<div class="form-group">
-							<label>选择帮助条目: </label>
+							<label>Select Topic: </label>
 							<select class="form-control" id="help-select">
 								{% for h in help_pages %}
 								<option data-help-url="{{h.url}}"{% if h.mirrorid == page.mirrorid%} selected{%endif%} id="toc-{{h.mirrorid}}">{{h.mirrorid}}</option>
