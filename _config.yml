@@ -6,33 +6,35 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 清华大学开源软件镜像站
+title: Taiwan Digital Streaming Co. Open Source Project Mirror Site
 # title: 北京外国语大学开源软件镜像站
-school: 清华大学
+school: Taiwan Digital Streaming Co.
 # school: 北京外国语大学
-brand: Tsinghua Open Source Mirror
-operator: 清华大学信息化技术中心
-author: Tsinghua University TUNA Association
-desc: 致力于为国内和校内用户提供高质量的开源软件镜像、Linux 镜像源服务，帮助用户更方便地获取开源软件。本镜像站由清华大学 TUNA 协会负责运行维护。
+brand: TWDS Open Source Mirror
+keyword: Linux Mirror,Mirror Site,Linux,Opensource
+operator: seadog007 & james58899 & Haraguroicha
+author: TWDS Mirror Op Group
+desc: Placeholder
 # operator: 北外信息技术中心
 logo: true
 meow_404: true
-issue_tag: tuna
+issue_tag: twds
 baseurl: "" # the subpath of your site, e.g. /blog
 permalink: "/:categories/:title/"
-url: "https://mirrors.tuna.tsinghua.edu.cn"
-hostname: "mirrors.tuna.tsinghua.edu.cn"
-urlv4: "https://mirrors4.tuna.tsinghua.edu.cn"
-urlv6: "https://mirrors6.tuna.tsinghua.edu.cn"
-aosp: "aosp.tuna.tsinghua.edu.cn"
-arch_archive: "arch-archive.tuna.tsinghua.edu.cn"
-pypi: "pypi.tuna.tsinghua.edu.cn"
-homelink: "https://tuna.moe"
+base: /ssi
+url: "https://mirror.twds.com.tw"
+hostname: "mirror.twds.com.tw"
+urlv4: "https://mirror4.twds.com.tw"
+urlv6: "https://mirror6.twds.com.tw"
+aosp: "aosp.mirror.twds.com.tw"
+arch_archive: "arch-archive.mirror.twds.com.tw"
+pypi: "pypi.mirror.twds.com.tw"
+homelink: "https://www.twds.com.tw"
 hide_navbar: false
 hide_download: false
 hide_server_status: false
 
-hide_mirrorz: false
+hide_mirrorz: true
 mirrorz_desc: 校园网联合镜像站
 mirrorz_link: "https://mirrors.cernet.edu.cn/list"
 mirrorz_help_link: "https://help.mirrors.cernet.edu.cn/"
@@ -56,23 +58,23 @@ plugins:
 
 babel_js_extensions: 'es6'
 
-exclude: [Gemfile, Gemfile.lock, README.md, gen_robot.sh, vendor, geninfo/, gen_robot.sh, gen_desc.py, Dockerfile*]
+exclude: [Gemfile, Gemfile.lock, README.md, gen_robot.sh, vendor, geninfo/, gen_desc.py, Dockerfile*]
 
-sponsors:
-    megvii:
-        name: "旷视科技有限公司"
-        link: "https://megvii.com/"
-        short: "旷视"
-        eng: "Megvii Technology Ltd."
-        logo: "megvii-s"
-    huawei:
-        name: "华为技术有限公司"
-        link: "https://huawei.com/"
-        short: "华为"
-        eng: "Huawei Technologies Co., Ltd."
-        logo: "huawei"
+#sponsors:
+#    megvii:
+#        name: "旷视科技有限公司"
+#        link: "https://megvii.com/"
+#        short: "旷视"
+#        eng: "Megvii Technology Ltd."
+#        logo: "megvii-s"
+#    huawei:
+#        name: "华为技术有限公司"
+#        link: "https://huawei.com/"
+#        short: "华为"
+#        eng: "Huawei Technologies Co., Ltd."
+#        logo: "huawei"
 
-poweredbys:
-    kunpeng: "海思<sup>®</sup> Kunpeng<sup>®</sup> 920 处理器"
+#poweredbys:
+#    kunpeng: "海思<sup>®</sup> Kunpeng<sup>®</sup> 920 处理器"
 
 # vim: ts=2 sts=2 sw=2 expandtab

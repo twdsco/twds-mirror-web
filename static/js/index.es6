@@ -76,7 +76,7 @@ const vmMirList = new Vue({
 			if (mir.url !== undefined) {
 				return mir.url
 			}
-			return `/${mir.name}/`
+			return `{{ site.base }}/${mir.name}/`
 		},
 		refreshMirrorList() {
 			// do nothing if the tab is not visible
@@ -84,7 +84,7 @@ const vmMirList = new Vue({
 				return;
 			}
 			var self = this;
-			$.getJSON("/static/tunasync.json", (status_data) => {
+			$.getJSON("{{ site.base }}/static/tunasync.json", (status_data) => {
 				const unlisted_mir = unlisted.map(d => processMirrorItem(d))
 				status_data = status_data.map(d => processMirrorItem(d));
 				var mir_data = $.merge(unlisted_mir, status_data);
@@ -211,7 +211,7 @@ var vmIso = new Vue({
 	},
 	created: function() {
 		var self = this;
-		$.getJSON("/static/status/isoinfo.json", (isoinfo) => {
+		$.getJSON("{{ site.base }}/static/status/isoinfo.json", (isoinfo) => {
 			self.distroList = isoinfo;
 			self.availableCategories = [... new Set(isoinfo.map((x) => x.category))]
 			self.curCategory = self.availableCategories[0];

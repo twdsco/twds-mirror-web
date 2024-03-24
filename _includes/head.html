@@ -7,9 +7,9 @@
 {% capture page_title %}{% if page.mirrorid %} {{ page.mirrorid }} |{% elsif page.title %} {{ page.title }} |{% endif %}{% if include.cattitle %} {{ include.cattitle }} |{% endif %}{% if (page.title or include.cattitle) %}{{" "}}{% endif %}{{ site.title }}{% if site.brand %} | {{ site.brand }}{% endif %}{% endcapture %}
 
 <meta name="description" content="{{ page_desc }}">
-<meta name="keywords" content="Linux Mirror,Mirror Site,Linux,Opensource">
+<meta name="keywords" content="{{ site.keyword }}">
 <meta name="author" content="{{ site.author }}">
-<link rel="shortcut icon" href="/static/img/favicon.png">
+<link rel="shortcut icon" href="{{ site.base }}/static/img/favicon.png">
 <link rel="alternate" type="application/rss+xml" title="Mirror News" href="/feed.xml">
 
 <!-- Open Graph metadata -->
@@ -30,19 +30,19 @@
 
 <title>{{ page_title }}</title>
 {% unless include.nostyle %}
-<link rel="stylesheet" href="/static/css/bootstrap.min.css?{{ site.data['hash'] }}">
-<link rel="stylesheet" href="/static/css/bootstrap-select.min.css?{{ site.data['hash'] }}">
-<link rel="stylesheet" href="/static/css/style.css?{{ site.data['hash'] }}">
-<script src="/static/js/jquery.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/bootstrap.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/bootstrap-select.min.js?{{ site.data['hash'] }}"></script>
+<link rel="stylesheet" href="{{ site.base }}/static/css/bootstrap.min.css?{{ site.data['hash'] }}">
+<link rel="stylesheet" href="{{ site.base }}/static/css/bootstrap-select.min.css?{{ site.data['hash'] }}">
+<link rel="stylesheet" href="{{ site.base }}/static/css/style.css?{{ site.data['hash'] }}">
+<script src="{{ site.base }}/static/js/jquery.min.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/bootstrap.min.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/bootstrap-select.min.js?{{ site.data['hash'] }}"></script>
 {% unless page.legacy %}
-<script src="/static/js/vue.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/timeago.min.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/vue.min.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/timeago.min.js?{{ site.data['hash'] }}"></script>
 {% endunless %}
-<script src="/static/js/markup.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/webfont.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/thuhidden.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/markup.min.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/webfont.js?{{ site.data['hash'] }}"></script>
+<script src="{{ site.base }}/static/js/thuhidden.js?{{ site.data['hash'] }}"></script>
 {% if page.legacy %}
 <style>
 .container {

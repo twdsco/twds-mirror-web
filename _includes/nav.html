@@ -18,21 +18,21 @@
 						{% else %}
 						<source 
 						{% endif %}
-							srcset="/static/img/logo-small-dark.png 1x,
-											/static/img/logo-small-dark@2x.png 2x,
-											/static/img/logo-small-dark@3x.png 3x,
-											/static/img/logo-small-dark@4x.png 4x"
+							srcset="{{ site.base }}/static/img/logo-small-dark.png 1x,
+											{{ site.base }}/static/img/logo-small-dark@2x.png 2x,
+											{{ site.base }}/static/img/logo-small-dark@3x.png 3x,
+											{{ site.base }}/static/img/logo-small-dark@4x.png 4x"
 						{% if site.issue %}
 							alt=""/>
 						{% else %}
 							media="(prefers-color-scheme: dark)"/>
 						{% endif %}
 						{% unless site.issue %}
-						<img src="/static/img/logo-small.png" 
-							srcset="/static/img/logo-small.png 1x, 
-											/static/img/logo-small@2x.png 2x, 
-											/static/img/logo-small@3x.png 3x, 
-											/static/img/logo-small@4x.png 4x" 
+						<img src="{{ site.base }}/static/img/logo-small.png" 
+							srcset="{{ site.base }}/static/img/logo-small.png 1x, 
+											{{ site.base }}/static/img/logo-small@2x.png 2x, 
+											{{ site.base }}/static/img/logo-small@3x.png 3x, 
+											{{ site.base }}/static/img/logo-small@4x.png 4x" 
 							alt=""/>
 						{% endunless %}
 					</picture>

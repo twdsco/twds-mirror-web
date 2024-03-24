@@ -17,7 +17,7 @@ $(document).ready(() => {
       diskUsages: []
     },
     created () {
-      $.get("/static/status/disk.json", (d) => {
+      $.get("{{ site.base }}/static/status/disk.json", (d) => {
         if(!Array.isArray(d)){
           d = [d];
         }
