@@ -103,15 +103,6 @@
 						<div id="wizard">
 						</div>
 					{% endunless %}
-						<div id="news" {%if site.issue%}class="col-md-3"{%endif%}>
-							<h4>{% fa_svg fas.fa-bullhorn %} News </h4>
-							<ul>
-								{% for news in site.categories.news limit: 3%}
-								<li><a href="{{ site.base }}/news/#{{news.slug}}"><strong>{{news.date | date: "%Y-%m-%d"}}</strong> {{news.title}}</a></li>
-								{% endfor %}
-							</ul>
-							<div class="text-right"><a href="{{ site.base }}/news/"> more {% fa_svg fas.fa-angles-right %} </a></div>
-						</div>
 						<div class="thuhidden {%if site.issue%}col-md-4{%endif%}">
 							<h4> {% fa_svg fas.fa-link %} Domain Selection </h4>
 							<ul>
