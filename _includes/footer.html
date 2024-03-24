@@ -4,10 +4,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-4{% if page.legacy %} col-xs-4{% endif %}">
-        <p class="thuhidden">本站{% if site.operator %}由{{ site.operator }}支持创办，{% endif %}由清华大学 TUNA 协会运行维护。</p>
-        <p class="thuhidden">清华大学 TUNA 协会，全名清华大学学生网络与开源软件协会，是由清华大学热爱网络技术和开源软件的极客组成的学生技术社团。</p>
-        <p>本站相关源码可在 <a href="https://github.com/tuna/tunasync"><em>这里(镜像管理器)</em></a> 和 <a href="https://github.com/tuna/mirror-web"><em>这里(镜像站网页)</em></a> 获取。</p>
-        <p class="thuhidden">根据相关法律法规，本站不对欧盟用户提供服务。</p>
+        <p class="thuhidden">This site is operating by {{ site.operator }}, with infrastructure provided by Taiwan Digital Streaming Co.</p>
+        <p>The source code of this site can be found on <a href="https://github.com/tuna/tunasync"><em>Here (Mirror Manager)</em></a> and <a href="https://github.com/seadog007/twds-mirror-web"><em>Here (Website)</em></a></p>
         {% if site.footnote %}
         <p class="thuhidden">{{ site.footnote }}</p>
         {% endif %}
@@ -24,9 +22,6 @@
             </li>
             <li>
             <a href="https://github.com/tuna/">{% fa_svg fab.fa-github %} GitHub </a>
-            </li>
-            <li>
-            <a href="http://weibo.com/u/5402274706">{% fa_svg fab.fa-weibo %} 新浪微博</a>
             </li>
           </ul>
         </div>
