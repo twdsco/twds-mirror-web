@@ -458,12 +458,12 @@ new_mirrors:
   - crates.io-index
 
 unlisted_mirrors:
-  - status: 'success'
-    last_update: '-'
-    name: "tuna"
-    url: '/tuna/'
-    upstream: 'cloud.tsinghua.edu.cn'
-    is_master: true
+  #- status: 'success'
+  #  last_update: '-'
+  #  name: "tuna"
+  #  url: '/tuna/'
+  #  upstream: 'cloud.tsinghua.edu.cn'
+  #  is_master: true
   - link_to: 'sourceware'
     last_update: '-'
     name: "cygwin"
