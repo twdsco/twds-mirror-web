@@ -3,7 +3,7 @@ permalink: /404.html
 ---
 <!DOCTYPE html>
 <html>
-{% capture metaDesc %}您访问的资源未能找到{% endcapture %}
+{% capture metaDesc %}Your requested resources not found{% endcapture %}
   {% include head.html cattitle="404" metaDesc=metaDesc notArticle=true%}
   <body>
     {% include nav.html %}
@@ -20,25 +20,25 @@ permalink: /404.html
               404 NOT FOUND
               </div>
               {% if site.meow_404 %}
-                <span class="thuhidden">呜喵，金枪鱼</span>被吃掉了
+                <span class="thuhidden">Meow，Tuna</span> has been eaten
               {% endif %}
             </div>
             <div class="not-found-text thuhidden">
-              如果您认为这一定是出了什么问题，或者正在寻找暂未包含的镜像，欢迎您前往 
-              <a href="https://github.com/tuna/issues/issues/new/choose">
-                {% fa_svg fab.fa-github %} tuna/issues
+              If you think there might be something wrong, welcome to
+              <a href="https://github.com/seadog007/twds-mirror-web/issues/new/choose">
+                {% fa_svg fab.fa-github %} seadog007/twds-mirror-web
               </a>
-              提交<a href="https://github.com/tuna/issues/issues/new?labels=Service+Issue,404&template=2-bug_report.md" id="new_issue_bug"><!--
-           -->错误报告</a><!--
-           -->或者<a href="https://github.com/tuna/issues/issues/new?labels=MirrorRequest&template=1-mirror_request.md" id="new_issue_mr"><!--
-           -->镜像申请</a>
+              Submit
+							<a href="https://github.com/seadog007/twds-mirror-web/issues/new?labels=Service+Issue,404&template=2-bug_report.md" id="new_issue_bug">error report</a>
+							or
+							<a href="https://github.com/seadog007/twds-mirror-web/issues/new?labels=MirrorRequest&template=1-mirror_request.md" id="new_issue_mr">mirror request</a>
             </div>
             <div class="not-found-links">
               <a class="not-found-link" href="javascript:history.back()">
-              {% fa_svg fas.fa-arrow-left %} 返回上一页
+              {% fa_svg fas.fa-arrow-left %} Back
               </a>
               <a class="not-found-link" href="/">
-              镜像列表 {% fa_svg fas.fa-arrow-right %}
+              Mirror list {% fa_svg fas.fa-arrow-right %}
               </a>
             </div>
           </div>
