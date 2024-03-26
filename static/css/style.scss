@@ -118,7 +118,7 @@ body {
     }
 }
 
-.status-fail, .status-failed, .status-paused {
+.status-fail, .status-failed, .status-paused, .status-disabled {
     background-color: #fff4e3;
     @include dark{
         background-color: #524841;

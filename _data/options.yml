@@ -560,3 +560,4 @@ label_map:
   fail: label-warning
   failed: label-warning
   paused: label-warning
+  disabled: label-default
