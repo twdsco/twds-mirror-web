@@ -21,7 +21,7 @@ meow_404: true
 issue_tag: twds
 baseurl: "" # the subpath of your site, e.g. /blog
 permalink: "/:categories/:title/"
-base: /ssi
+base: ""
 url: "https://mirror.twds.com.tw"
 hostname: "mirror.twds.com.tw"
 urlv4: "https://mirror4.twds.com.tw"
