@@ -131,7 +131,9 @@
 							<h4> {% fa_svg fas.fa-arrow-up-right-from-square %} Related Links </h4>
 							<ul>
 								{% unless site.issue %}
+								{% unless site.hide_server_status %}
 								<li><a href="{{ site.base }}/status/#server-status">Server Status</a></li>
+								{% endunless %}
 								<li><a href="{{ site.base }}/status/#syncing-status">Sync Status</a></li>
 								{% endunless %}
 								<li><a href="https://github.com/tuna/tunasync">Mirror Manager</a></li>
