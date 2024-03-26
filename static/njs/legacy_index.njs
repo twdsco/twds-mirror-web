@@ -41,8 +41,6 @@ function legacyIndexRender(r){
         return r.return(500);
       }
       var label_map = global_options.options.label_map;
-      var help_url = {};
-      global_options.helps.forEach((h) => help_url[h.mirrorid] = h.url);
       var new_mirrors = {};
       global_options.options.new_mirrors.forEach((m) => new_mirrors[m] = true);
       var unlisted = global_options.options.unlisted_mirrors;
@@ -76,10 +74,9 @@ function legacyIndexRender(r){
             status: status,
             name: m.name,
             description: descriptions[m.name],
-            url: force_help[m.name] ? help_url[m.name] : m.url ? m.url : '/' + m.name + '/',
+            url: '/' + m.name + '/',
             is_new: !!new_mirrors[m.name],
             github_release: m.url && m.url.startsWith('/github-release/'),
-            help_url: help_url[m.name],
             last_update: getMirDate(target),
             label: label_map[status],
             show_status: status != 'success'

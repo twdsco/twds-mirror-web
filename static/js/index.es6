@@ -5,8 +5,6 @@ $('.selectpicker').selectpicker()
 
 var global_options = {% include options.json %};
 var label_map = global_options.options.label_map;
-var help_url = {};
-global_options.helps.forEach((h) => help_url[h.mirrorid] = h.url);
 var new_mirrors = {};
 global_options.options.new_mirrors.forEach((m) => new_mirrors[m] = true);
 var unlisted = global_options.options.unlisted_mirrors;
@@ -176,7 +174,6 @@ const processMirrorItem = (d) => {
 	if (options[d.name] != undefined ) {
 		d = $.extend(d, options[d.name]);
 	}
-	d.help_url = help_url[d.name];
 	d.is_new = Boolean(new_mirrors[d.name]);
 	d.description = descriptions[d.name];
 	d.github_release = d.url && d.url.startsWith('/github-release/');
