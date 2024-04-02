@@ -1,16 +1,10 @@
 <div class="col-md-6 col-xs-12">
 	<picture class="thumbnail">
 	<source 
-		srcset="{{ site.base }}/static/status/{{include.name}}-day-dark.png 1x,
-						{{ site.base }}/static/status/{{include.name}}-day-dark@2x.png 2x,
-						{{ site.base }}/static/status/{{include.name}}-day-dark@3x.png 3x,
-						{{ site.base }}/static/status/{{include.name}}-day-dark@4x.png 4x"
+		srcset="{{ site.base }}/static/status/dark_{{include.name}}_24h.png 1x"
 		media="(prefers-color-scheme: dark)" />
-	<img class="img-responsive" src="{{ site.base }}/static/status/{{include.name}}-day.png"
-		srcset="{{ site.base }}/static/status/{{include.name}}-day.png 1x,
-						{{ site.base }}/static/status/{{include.name}}-day@2x.png 2x,
-						{{ site.base }}/static/status/{{include.name}}-day@3x.png 3x,
-						{{ site.base }}/static/status/{{include.name}}-day@4x.png 4x"
+	<img class="img-responsive" src="{{ site.base }}/static/status/light_{{include.name}}_24h.png"
+		srcset="{{ site.base }}/static/status/light_{{include.name}}_24h.png 1x"
 	/>
 	</picture>
 </div>

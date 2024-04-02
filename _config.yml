@@ -32,7 +32,7 @@ pypi: "pypi.mirror.twds.com.tw"
 homelink: "https://www.twds.com.tw"
 hide_navbar: false
 hide_download: false
-hide_server_status: true
+hide_server_status: false
 
 hide_mirrorz: true
 mirrorz_desc: 校园网联合镜像站

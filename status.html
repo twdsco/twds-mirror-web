@@ -13,12 +13,12 @@ permalink: /status/
 		<div class="container">
 			{% unless site.hide_server_status %}
 			<h3 id="server-status"> # Server Status Monitoring </h3>
-			<h4> # Network Traffic </h4>
+			<h4> # Network Connection / Traffic </h4>
 			<div class="row">
-				{% include status-pic.html name="service_traffic_IPv4" %}
-				{% include status-pic.html name="service_traffic_IPv6" %}
+				{% include status-pic.html name="connection" %}
+				{% include status-pic.html name="traffic" %}
 			</div>
-			<h4># Disk Status </h4>
+			<h4># Disk Usage </h4>
 			<div class="row" id="disk-usage">{% raw %}
 				<div class="col-xs-12" v-if="diskUsages.length"><strong>Disk Usage</strong>: </div>
 				<template v-for="disk in diskUsages">
@@ -31,10 +31,10 @@ permalink: /status/
 				</div>
 				</div>
 				</template>{% endraw %}
-				{% include status-pic.html name="diskstats_iops" %}
-				{% include status-pic.html name="diskstats_throughput" %}
+				{% include status-pic.html name="disk1" %}
+				{% include status-pic.html name="disk2" %}
 			</div>
-			<h4># CPU / 内存</h4>
+			<h4># CPU / Memory</h4>
 			<div class="row">
 				{% include status-pic.html name="cpu" %}
 				{% include status-pic.html name="memory" %}
