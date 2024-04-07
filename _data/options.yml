@@ -8,6 +8,7 @@ official_list:
   - termux
   - kali
   - kali-images
+  - archlinux
 
 # Content Related
 mirror_desc:
