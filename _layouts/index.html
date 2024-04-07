@@ -71,8 +71,10 @@
 										<a class="mirror-item-label"  data-toggle="popover" data-trigger="hover" data-placement="right"
 											:data-content="mir.description" :href="getURL(mir)" :aria-label="mir.name + ', ' + mir.description">
 											{{mir.name}}
-											<span class="label label-new" v-if='mir.is_new'>new</span>
-											<a v-if='mir.github_release' href="javascript:void(0)"><i aria-hidden="true" title="GitHub Release">{% endraw %}{% fa_svg fab.fa-github %}{% raw %}</i><span class="sr-only">[GitHub Release]</span></a>
+											<span class="label label-new" v-if="mir.is_new">new</span>
+											<a v-if="mir.github_release" href="javascript:void(0)"><i aria-hidden="true" title="GitHub Release">{% endraw %}{% fa_svg fab.fa-github %}{% raw %}</i><span class="sr-only">[GitHub Release]</span></a>
+										</a>
+										<img v-if="mir.official" src="/static/img/official.svg" />
 									</td>
 									<td class="col-md-4">
 										{{mir.last_update}}<span v-if="mir.show_status" :class="['label', 'label-status', mir.label, 'hidden-xs']">{{mir.status}}</span>

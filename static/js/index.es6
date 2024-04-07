@@ -89,6 +89,10 @@ const vmMirList = new Vue({
 				mir_data = processLinkItem(mir_data);
 				status_data = sortAndUniqMirrors(status_data);
 				mir_data = sortAndUniqMirrors(mir_data);//.filter(d => !(d.status == "disabled"));
+				mir_data = mir_data.map(m => {
+					m.official = global_options.options.official_list.indexOf(m.name) != -1;
+					return m;
+				});
 				self.mirrorList = mir_data;
 				self.rawMirrorList = status_data;
 				self.refreshTimer = setTimeout(() => {self.refreshMirrorList()}, 10000);
