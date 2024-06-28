@@ -33,10 +33,14 @@
 					{% else %}
 					<div class="col-{% if page.legacy %}xs{% else %}md{% endif %}-8 table-responsive" id="mirror-list">
 						<div class="row">
-							<h3 id="mirror-title">{% fa_svg fas.fa-cube %} Mirror List </h3>
-							{% unless page.legacy %}
-							<input type="search" v-model.trim="filter" id="search" ref="search" placeholder="Press / to search" autocomplete="off">
-							{% endunless %}
+							<div class="col-xs-6 col-sm-8">
+								<h3 id="mirror-title">{% fa_svg fas.fa-cube %} Mirror List </h3>
+							</div>
+							<div class="col-xs-6 col-sm-4">
+								{% unless page.legacy %}
+								<input type="search" class="form-control" v-model.trim="filter" id="search" ref="search" placeholder="Press / to search" autocomplete="off">
+								{% endunless %}
+							</div>
 						</div>
 						<table class="table" v-if="mirrorList.length">
 							<thead>
