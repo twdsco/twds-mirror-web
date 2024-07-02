@@ -6,7 +6,8 @@ tmp=$(mktemp -d)
 
 for t in "light" "dark"
 do
-for p in "1h" "3h" "6h" "24h"
+#for p in "1h" "3h" "6h" "24h"
+for p in "24h"
 do
 wget -q "http://127.0.0.1:3000/render/d-solo/ddhj7whaercw0e/mirror-monitor?scale=3&theme=$t&panelId=1&from=now-$p&width="$W"&height="$H -O "$tmp"/"$t"_traffic_"$p".png &
 wget -q "http://127.0.0.1:3000/render/d-solo/ddhj7whaercw0e/mirror-monitor?scale=3&theme=$t&panelId=5&from=now-$p&width="$W"&height="$H -O "$tmp"/"$t"_connection_"$p".png &
