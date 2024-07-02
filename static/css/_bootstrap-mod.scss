@@ -61,6 +61,24 @@ code{
   } 
 }
 
+@media (min-width: 768px) {
+  .navbar-brand {
+    width: calc(750px - 198px) !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    width: calc(970px - 198px) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-brand {
+    width: calc(1170px - 198px) !important;
+  }
+}
+
 .navbar-brand {
   font-weight: 900;
   padding: 0px;
