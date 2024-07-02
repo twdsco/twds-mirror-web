@@ -4,11 +4,14 @@ official_list:
   - ubuntu-releases
   - fedora
   - rockylinux
+  - rockylinux-sigs
   - almalinux
   - termux
   - kali
   - kali-images
   - archlinux
+  - archlinuxcn
+  - centos-stream
 
 # Content Related
 mirror_desc:
