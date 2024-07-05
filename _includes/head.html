@@ -3,8 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% capture page_desc %}{% if include.metaDesc %}{{ include.metaDesc }} | {% if include.cattitle %}{{ include.cattitle }} | {% endif %}{% endif %}{{ site.title }}，{{ site.desc }}{% endcapture %}
+{% capture page_desc %}{% if include.metaDesc %}{{ include.metaDesc }} | {% if include.cattitle %}{{ include.cattitle }} | {% endif %}{% endif %}{{ site.title }}{% endcapture %}
 {% capture page_title %}{% if page.mirrorid %} {{ page.mirrorid }} |{% elsif page.title %} {{ page.title }} |{% endif %}{% if include.cattitle %} {{ include.cattitle }} |{% endif %}{% if (page.title or include.cattitle) %}{{" "}}{% endif %}{{ site.title }}{% if site.brand %} | {{ site.brand }}{% endif %}{% endcapture %}
+{% capture page_url %}{% if include.url %}{{ include.url }}{% elsif page.url %}{{ page.url }}{% endif %}{% endcapture %}
 
 <meta name="description" content="{{ page_desc }}">
 <meta name="keywords" content="{{ site.keyword }}">
@@ -15,8 +16,8 @@
 <!-- Open Graph metadata -->
 <meta property="og:title" content="{{ page_title }}" />
 <meta property="og:description" content="{{ page_desc  }}" />
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/static/img/logo-share.png" /> <!-- WeChat requires that thumbnail image is larger than 300x300 -->
-<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/static/img/logo.png" /> <!-- WeChat requires that thumbnail image is larger than 300x300 -->
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page_url }}" />
 <meta property="og:locale" content="en_US" />
 {% if include.notArticle %}
 <meta property="og:type" content="website" />

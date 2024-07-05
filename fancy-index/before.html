@@ -4,8 +4,9 @@ title: Index of {{url}}
 ---
 <!DOCTYPE html>
 <html>
-{% capture metaDesc %}Index of {% raw %}{{url}}{% endraw %}{% endcapture %}
-	{% include head.html metaDesc=metaDesc notArticle=true %}
+{% capture url %}{% raw %}{{url}}{% endraw %}{% endcapture %}
+{% capture metaDesc %}Index of {{url}}{% endcapture %}
+	{% include head.html metaDesc=metaDesc notArticle=true url=url %}
 	<body>
 		{% include nav.html %}
 
@@ -14,17 +15,15 @@ title: Index of {{url}}
 
 			<div class="container">
 				<div class="row">
-					{% raw %}
 					<div class="col-md-12 table-responsive" id="mirror-list">
 						<div>
-							<div class="col-md-8 col-xs-12 vbottom"><h3>{% endraw %}{% fa_svg fas.fa-cube %}{% raw %} Index of <span id="path">{{url}}</span></h3></div><!--
+							<div class="col-md-8 col-xs-12 vbottom"><h3>{% fa_svg fas.fa-cube %} Index of <span id="path">{{url}}</span></h3></div><!--
 							--><div class="col-md-4 col-xs-12 text-right-md text-left-xs vbottom" v-if="nowBrowsingMirror">
 								<strong>Last Update:</strong> {{open}}nowBrowsingMirror.last_update{{close}}
 								<span v-if="nowBrowsingMirror.show_status" :class="['label', 'label-status', nowBrowsingMirror.label, 'hidden-xs']">{{open}}nowBrowsingMirror.status{{close}}</span>
 							</div>
 						</div>
-					{% endraw %}
-					<h1 style="display: none;">{% raw %}{{url}}{% endraw %}</h1>
+					<h1 style="display: none;">{{url}}</h1>
 <!--
 	vim: ts=2 sts=2 sw=2 noexpandtab
 -->

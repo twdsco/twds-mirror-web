@@ -5,10 +5,11 @@ legacy: true
 ---
 <!DOCTYPE html>
 <html>
-{% capture metaDesc %}Index of {% raw %}{{url}}{% endraw %}{% endcapture %}
-	{% include head.html metaDesc=metaDesc nostyle="true" notArticle=true %}
+{% capture url %}{% raw %}{{url}}{% endraw %}{% endcapture %}
+{% capture metaDesc %}Index of {{url}}{% endcapture %}
+	{% include head.html metaDesc=metaDesc nostyle="true" notArticle=true url=url %}
 	<body>
-	<h1>Index of {% raw %}{{url}}{% endraw %}</h1>
+	<h1>Index of {{url}}</h1>
 <!--
 	vim: ts=2 sts=2 sw=2 noexpandtab
 -->
