@@ -1,17 +1,17 @@
 official_list:
-  - ubuntu
-  - ubuntu-ports
-  - ubuntu-releases
-  - fedora
-  - rockylinux
-  - rockylinux-sigs
   - almalinux
-  - termux
-  - kali
-  - kali-images
   - archlinux
   - archlinuxcn
   - centos-stream
+  - fedora
+  - kali
+  - kali-images
+  - rockylinux
+  - rockylinux-sigs
+  - termux
+  - ubuntu
+  - ubuntu-ports
+  - ubuntu-releases
 
 # Content Related
 mirror_desc:
