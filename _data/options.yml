@@ -1,5 +1,6 @@
 official_list:
   - almalinux
+  - alpine
   - archlinux
   - archlinuxcn
   - centos-stream
