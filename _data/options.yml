@@ -3,12 +3,14 @@ official_list:
   - alpine
   - archlinux
   - archlinuxcn
+  - blender
   - centos-stream
   - fedora
   - kali
   - kali-images
   - rockylinux
   - rockylinux-sigs
+  - tdf
   - termux
   - ubuntu
   - ubuntu-ports
