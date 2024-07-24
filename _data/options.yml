@@ -30,10 +30,16 @@ mirror_desc:
     desc: Archlinux-based repos build with different x86-64 feature levels, -O3 and LTO.
   - name: fedora
     desc: Fedora & EPEL
+  - name: openstreetmap
+    desc: OpenStreetMap latest Planet.osm
   - name: remi
     desc: Remi's RPM repository
   - name: rpmfusion
     desc: RPM Fusion provides software that the Fedora Project or Red Hat doesn't want to ship.
+  - name: tdf
+    desc: The Document Foundation - The House of LibreOffice and Document Liberation Project
+  - name: videolan
+    desc: VideoLAN (VLC)
 
 new_mirrors: []
 
