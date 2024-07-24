@@ -6,6 +6,7 @@ official_list:
   - blender
   - centos-stream
   - fedora
+  - jenkins
   - kali
   - kali-images
   - rockylinux
