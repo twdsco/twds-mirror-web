@@ -18,7 +18,7 @@ title: Index of {{url}}
 					<div class="col-md-12 table-responsive" id="mirror-list">
 						<div>
 							<div class="col-md-8 col-xs-12 vbottom"><h3>{% fa_svg fas.fa-cube %} Index of <span id="path">{{url}}</span></h3></div><!--
-							--><div class="col-md-4 col-xs-12 text-right-md text-left-xs vbottom" v-if="nowBrowsingMirror">
+							--><div class="col-md-4 col-xs-12 text-right-md text-left-xs vbottom" v-show="nowBrowsingMirror" style="display: none;">
 								<strong>Last Update:</strong> {% raw %}{{open}}nowBrowsingMirror.last_update{{close}}{% endraw %}
 								<span v-if="nowBrowsingMirror.show_status" :class="['label', 'label-status', nowBrowsingMirror.label, 'hidden-xs']">{% raw %}{{open}}nowBrowsingMirror.status{{close}}{% endraw %}</span>
 							</div>
