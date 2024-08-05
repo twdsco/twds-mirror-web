@@ -6,6 +6,7 @@ official_list:
   - archlinuxcn
   - blender
   - centos-stream
+  - debian
   - fedora
   - jenkins
   - kali
@@ -17,6 +18,7 @@ official_list:
   - ubuntu
   - ubuntu-ports
   - ubuntu-releases
+  - videolan
 
 # Content Related
 mirror_desc:
