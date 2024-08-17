@@ -8,6 +8,8 @@ official_list:
   - centos-stream
   - debian
   - fedora
+  - gnu
+  - gnu-alpha
   - jenkins
   - kali
   - kali-images
@@ -32,8 +34,10 @@ mirror_desc:
     desc: Archlinux-based repos build with different x86-64 feature levels, -O3 and LTO.
   - name: fedora
     desc: Fedora & EPEL
-  - name: openstreetmap
-    desc: OpenStreetMap latest Planet.osm
+  - name: gnu
+    desc: Releases of GNU programs
+  - name: gnu-alpha
+    desc: Releases of GNU programs (Alpha version)
   - name: remi
     desc: Remi's RPM repository
   - name: rpmfusion
