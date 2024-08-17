@@ -4,6 +4,8 @@ official_list:
   - alpine
   - archlinux
   - archlinuxcn
+  - armbian-apt
+  - armbian-dl
   - blender
   - centos-stream
   - debian
@@ -24,6 +26,10 @@ official_list:
 
 # Content Related
 mirror_desc:
+  - name: armbian-apt
+    desc: Linux for single board computers (Packages)
+  - name: armbian-dl
+    desc: Linux for single board computers (Images)
   - name: ubuntu
     desc: 流行的 Linux 發行版 Ubuntu 的安裝檔和官方軟體庫
   - name: ubuntu-releases
