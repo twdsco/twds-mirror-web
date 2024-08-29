@@ -126,6 +126,13 @@
 							</button>
 						</div>
 						{% endunless %}
+						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}" id="sponsors">
+							<h4> {% fa_svg far.fa-heart %} Sponsor </h4>
+							<ul v-if="sponsors.length">
+								<li v-for="sponsor in sponsors"><strong>{% raw %}{{ sponsor }}{% endraw %}</strong>
+							</ul>
+							<a href="https://store.twds.com.tw/index.php?rp=/store/twds-mirror" target="_blank"><button type="button" class="btn btn-info">Sponsor Now</button></a>
+						</div>
 						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}">
 							<h4> {% fa_svg far.fa-envelope %} Contact Us </h4>
 							<ul>

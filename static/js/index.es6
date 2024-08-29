@@ -242,6 +242,19 @@ var vmIso = new Vue({
 	}
 });
 
+var sponsors = new Vue({
+	el: "#sponsors",
+	data: {
+		sponsors: [],
+	},
+	created: function() {
+		var self = this;
+		$.getJSON("{{ site.base }}/mirror-sponsors.json", (sponsors) => {
+			self.sponsors = sponsors;
+		});
+	}
+});
+
 });
 
 // vim: ts=2 sts=2 sw=2 noexpandtab
