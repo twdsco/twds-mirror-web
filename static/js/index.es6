@@ -204,9 +204,9 @@ var vmIso = new Vue({
 		selected: {},
 		curCategory: "",
 		knownCategories: {
-			os: "操作系统",
-			app: "应用软件",
-			font: "字体",
+			os: "OS",
+			app: "Application",
+			font: "Font",
 		},
 		availableCategories: []
 	},
