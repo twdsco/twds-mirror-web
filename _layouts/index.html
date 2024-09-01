@@ -131,7 +131,7 @@
 							<ul v-if="sponsors.length">
 								<li v-for="sponsor in sponsors"><strong>{% raw %}{{ sponsor }}{% endraw %}</strong>
 							</ul>
-							<p>({% raw %}{{ sponsors.length*500 }}{% endraw %}/20000 TWD)</p>
+							<p>{% raw %}({{ sponsors.length*550 }}/27500 TWD, {{ sponsors.length*550 / 27500 * 100 }}%){% endraw %}</p>
 							<a href="https://store.twds.com.tw/index.php?rp=/store/twds-mirror" target="_blank"><button type="button" class="btn btn-info">Sponsor Now</button></a>
 						</div>
 						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}">
