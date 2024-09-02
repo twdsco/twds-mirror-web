@@ -222,6 +222,9 @@ table .row{
   .progress {
     background-color: $color_secondary;
   }
+  .progress-bar {
+    background-color: #42729c;
+  }
   .table-striped > tbody > tr:nth-child(odd) > td,
   .table-striped > tbody > tr:nth-child(odd) > th {
     background-color: #060606;
