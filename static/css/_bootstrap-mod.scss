@@ -219,8 +219,8 @@ table .row{
   .label-warning {
     background-color: #dd9640;
   }
-  .progress-bar {
-    background-color: #42729c;
+  .progress {
+    background-color: $color_secondary_dark;
   }
   .table-striped > tbody > tr:nth-child(odd) > td,
   .table-striped > tbody > tr:nth-child(odd) > th {
