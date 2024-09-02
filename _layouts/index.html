@@ -128,6 +128,20 @@
 						{% endunless %}
 						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}" id="sponsors">
 							<h4> {% fa_svg far.fa-heart %} Personal Sponsor </h4>
+							{% if page.legacy %}
+							{% raw %}
+							<ul>
+								{{sponsors.names}}
+								<li><strong>{{ . }}</strong>
+								{{/sponsors.names}}
+							</ul>
+							<div class="progress">
+								<div class="progress-bar progress-bar-success" style="width: {{sponsors.progress}}%">
+									<p style="white-space: nowrap;margin: 0 1em;">{{ sponsors.total }}/27500 TWD ({{ sponsors.progressText }}%)</p>
+								</div>
+							</div>
+							{% endraw %}
+							{% else %}
 							<ul v-if="sponsors.length">
 								<li v-for="sponsor in sponsors"><strong>{% raw %}{{ sponsor }}{% endraw %}</strong>
 							</ul>
@@ -138,6 +152,7 @@
 								</div>
 							</div>
 							{% endraw %}
+							{% endif %}
 							<a href="https://store.twds.com.tw/index.php?rp=/store/twds-mirror" target="_blank"><button type="button" class="btn btn-info">Sponsor Now</button></a>
 						</div>
 						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}">

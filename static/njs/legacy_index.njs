@@ -83,12 +83,29 @@ function legacyIndexRender(r){
           };
         });
         renMirs.sort((a, b) => a.name < b.name ? -1: 1 );
-        var result = Mark.up(tmpl, {mirs: renMirs});
-        r.status = 200;
-        r.headersOut['Content-Type'] = 'text/html';
-        r.sendHeader();
-        r.send(result);
-        r.finish();
+        var sponsors = {names: [], progress: 0, progressText: 0, total: 0};
+        r.subrequest('/mirror-sponsors.json', {
+          args: '',
+          body: '',
+          method: 'GET'
+        }, function(rSponsors){
+          if(rSponsors.status == 200){
+            try{
+              var list = JSON.parse(rSponsors.responseText);
+              sponsors.names = list;
+              sponsors.progress = Math.min(list.length*550 / 27500 * 100, 100)
+              sponsors.progressText = list.length*550 / 27500 * 100
+              sponsors.total = list.length*550
+            }catch(e){
+            }
+          }
+          var result = Mark.up(tmpl, {mirs: renMirs, sponsors});
+          r.status = 200;
+          r.headersOut['Content-Type'] = 'text/html';
+          r.sendHeader();
+          r.send(result);
+          r.finish();
+        })
       })
     })
   });
