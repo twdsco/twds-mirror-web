@@ -95,7 +95,7 @@ function legacyIndexRender(r){
               sponsors.names = list;
               sponsors.total = list.length * 550
               sponsors.target = 27500
-              sponsors.progressText = sponsors.total / sponsors.target * 100
+              sponsors.progressText = (sponsors.total / sponsors.target * 100).toFixed()
               sponsors.progress = Math.min(sponsors.progressText, 100)
               sponsors.totalFormated = sponsors.total.toString().split('').reverse().join('').replace(/(\d{3})/gi, '$1,').split('').reverse().join('').replace(/^,*/gi, '$')
               sponsors.targetFormated = sponsors.target.toString().split('').reverse().join('').replace(/(\d{3})/gi, '$1,').split('').reverse().join('').replace(/^,*/gi, '$')
