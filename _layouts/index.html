@@ -135,20 +135,20 @@
 								<li><strong>{{ . }}</strong>
 								{{/sponsors.names}}
 							</ul>
-							<div class="progress">
-								<div class="progress-bar progress-bar-success" style="width: {{sponsors.progress}}%">
-									<p style="white-space: nowrap;margin: 0 1em;">{{ sponsors.total }}/27500 TWD ({{ sponsors.progressText }}%)</p>
+							<div class="progress sponsor-progress" style="height: var(--sponsor-progress-height);">
+								<div class="progress-bar progress-bar-success" style="width: {{sponsors.progress}}%;">
+									<strong>{{ sponsors.totalFormated }}/{{ sponsors.targetFormated }} TWD ({{ sponsors.progressText }}%)</strong>
 								</div>
 							</div>
 							{% endraw %}
 							{% else %}
-							<ul v-if="sponsors.length">
-								<li v-for="sponsor in sponsors"><strong>{% raw %}{{ sponsor }}{% endraw %}</strong>
+							<ul v-if="sponsors.names.length">
+								<li v-for="sponsor in sponsors.names"><strong>{% raw %}{{ sponsor }}{% endraw %}</strong>
 							</ul>
 							{% raw %}
-							<div class="progress">
-								<div class="progress-bar progress-bar-success" v-bind:style="{width: Math.min(sponsors.length*550 / 27500 * 100, 100) + '%'}">
-									<p style="white-space: nowrap;margin: 0 1em;">{{ sponsors.length*550 }}/27500 TWD ({{ sponsors.length*550 / 27500 * 100 }}%)</p>
+							<div class="progress sponsor-progress" style="height: var(--sponsor-progress-height);">
+								<div class="progress-bar progress-bar-success" v-bind:style="{width: sponsors.progress + '%'}">
+									<strong>{{ sponsors.totalFormated }}/{{ sponsors.targetFormated }} TWD ({{ sponsors.progressText }}%)</strong>
 								</div>
 							</div>
 							{% endraw %}

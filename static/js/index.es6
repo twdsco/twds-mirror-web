@@ -245,12 +245,25 @@ var vmIso = new Vue({
 var sponsors = new Vue({
 	el: "#sponsors",
 	data: {
-		sponsors: [],
+		sponsors: {
+			names: [],
+			progress: 0,
+			progressText: 0,
+			total: 0,
+			totalFormated: '',
+			targetFormated: '',
+		},
 	},
 	created: function() {
 		var self = this;
 		$.getJSON("{{ site.base }}/mirror-sponsors.json", (sponsors) => {
-			self.sponsors = sponsors;
+			self.sponsors.names = sponsors;
+			self.sponsors.total = sponsors.length * 550
+			self.sponsors.target = 27500
+			self.sponsors.progressText = self.sponsors.total / self.sponsors.target * 100
+			self.sponsors.progress = Math.min(self.sponsors.progressText, 100)
+			self.sponsors.totalFormated = Intl.NumberFormat('zh-TW', { style: 'currency', currency: 'TWD', maximumFractionDigits: 0 }).format(self.sponsors.total)
+			self.sponsors.targetFormated = Intl.NumberFormat('zh-TW', { style: 'currency', currency: 'TWD', maximumFractionDigits: 0 }).format(self.sponsors.target)
 		});
 	}
 });

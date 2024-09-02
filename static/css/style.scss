@@ -559,3 +559,16 @@ svg.icon {
   color: inherit;
   background-color: transparent;
 }
+
+.sponsor-progress {
+  --sponsor-progress-height: 25px;
+  strong {
+    align-items: center;
+    display: flex;
+    font-size: calc(var(--sponsor-progress-height) * .60);
+    height: 100%;
+    padding-left: 1em;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+}
