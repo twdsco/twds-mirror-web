@@ -564,6 +564,10 @@ svg.icon {
   --sponsor-progress-height: 25px;
   strong {
     align-items: center;
+    color: $color_secondary;
+    @include dark {
+        color: $color_secondary_dark;
+    }
     display: flex;
     font-size: calc(var(--sponsor-progress-height) * .60);
     height: 100%;
