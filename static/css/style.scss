@@ -568,10 +568,10 @@ svg.icon {
     @include dark {
         color: $color_secondary_dark;
     }
-    display: flex;
+    display: inline-flex;
     font-size: calc(var(--sponsor-progress-height) * .60);
     height: 100%;
-    padding-left: 1em;
+    padding: 0 1em;
     white-space: nowrap;
     word-break: keep-all;
   }
