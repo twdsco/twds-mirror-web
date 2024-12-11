@@ -10,6 +10,7 @@ official_list:
   - centos-stream
   - debian
   - fedora
+  - gimp
   - gnu
   - gnu-alpha
   - jenkins
@@ -17,6 +18,8 @@ official_list:
   - kali-images
   - kde
   - kde-application
+  - linuxmint
+  - linuxmint-iso
   - rockylinux
   - rockylinux-sigs
   - tdf
