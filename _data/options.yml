@@ -20,6 +20,7 @@ official_list:
   - kde-application
   - linuxmint
   - linuxmint-iso
+  - lyx
   - rockylinux
   - rockylinux-sigs
   - tdf
@@ -49,6 +50,8 @@ mirror_desc:
     desc: Releases of GNU programs
   - name: gnu-alpha
     desc: Releases of GNU programs (Alpha version)
+  - name: lyx
+    desc: LyX is an open source, graphical user interface document processor based on the LaTeX typesetting system.
   - name: remi
     desc: Remi's RPM repository
   - name: rpmfusion
