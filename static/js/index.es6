@@ -257,7 +257,7 @@ var sponsors = new Vue({
 	created: function() {
 		var self = this;
 		$.getJSON("{{ site.base }}/mirror-sponsors.json", (sponsors) => {
-			self.sponsors.names = sponsors;
+			self.sponsors.names = sponsors.sort((a,b) => ((b.streak - a.streak) || b.subtime - a.subtime)).map(s => s.streak > 1 ? `${s.name} × ${s.streak}` : s.name);
 			self.sponsors.total = sponsors.length * 550
 			self.sponsors.target = 41250
 			self.sponsors.progressText = (self.sponsors.total / self.sponsors.target * 100).toFixed()
