@@ -1,3 +1,4 @@
 {
-"options": {{ site.data.options | jsonify }}
+"options": {{ site.data.options | jsonify }},
+"helps": {{ site.categories['help'] | select: "mirrorid", "url" | jsonify }}
 }

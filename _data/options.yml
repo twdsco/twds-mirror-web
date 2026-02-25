@@ -37,7 +37,7 @@ mirror_desc:
   - name: armbian-dl
     desc: Linux for single board computers (Images)
   - name: ubuntu
-    desc: 流行的 Linux 發行版 Ubuntu 的安裝檔和官方軟體庫
+    desc: Popular Linux distribution Ubuntu packages and official repositories
   - name: ubuntu-releases
     desc: Ubuntu Images
   - name: ubuntu-cd
@@ -68,10 +68,10 @@ unlisted_mirrors: []
 force_redirect_help_mirrors: []
 
 label_map:
-  unknown: label-default
-  syncing: label-info
-  success: label-success
-  fail: label-warning
-  failed: label-warning
-  paused: label-warning
-  disabled: label-default
+  unknown: text-bg-secondary
+  syncing: text-bg-info
+  success: text-bg-success
+  fail: text-bg-warning
+  failed: text-bg-warning
+  paused: text-bg-warning
+  disabled: text-bg-secondary

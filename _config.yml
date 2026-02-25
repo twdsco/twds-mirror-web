@@ -39,26 +39,44 @@ mirrorz_desc: 校园网联合镜像站
 mirrorz_link: "https://mirrors.cernet.edu.cn/list"
 mirrorz_help_link: "https://help.mirrors.cernet.edu.cn/"
 
-# Build settings
+# ==================================
+# Build settings below, DO NOT TOUCH
+# ==================================
+
 highlighter: rouge
 markdown: kramdown
 kramdown:
     input: GFM
     hard_wrap: false
 
-
-sass:
-    sass_dir: static/css
+vite:
+    config_path: _src/vite.json
+    viteConfig: _vite.config.mjs
 
 plugins:
-    - jekyll-babel
+    - jekyll-relative-links
     - jekyll-sitemap
     - jekyll/fontawesome/svg
     - jekyll-minifier
 
-babel_js_extensions: 'es6'
+jekyll-minifier:
+    exclude: [ 'assets/*' ]
 
-exclude: [Gemfile, Gemfile.lock, README.md, gen_robot.sh, vendor, geninfo/, gen_desc.py, Dockerfile*, build.sh]
+exclude:
+    - gen_robot.sh
+    - geninfo/
+    - gen_desc.py
+    - package.json
+    - package-lock.json
+    - node_modules/
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+    - vendor/
+    - Dockerfile*
+    - LICENSE
+    - build.sh
+    - _node_module_patch/
 
 #sponsors:
 #    megvii:

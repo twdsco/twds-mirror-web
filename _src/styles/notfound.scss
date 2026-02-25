@@ -1,0 +1,71 @@
+@use "./utils.scss" as utils;
+
+.not-found {
+  height: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.not-found-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  z-index: -1;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include utils.noissue {
+    opacity: 0.5;
+    filter: grayscale(0.2);
+    @include utils.imgurl("../imgs/missing", "light");
+  }
+
+  @include utils.dark {
+    opacity: 1;
+    filter: none;
+    @include utils.imgurl("../imgs/missing", "dark");
+  }
+}
+
+.nonthu .not-found-bg {
+  background-image: none;
+}
+
+.not-found-hint {
+  font-weight: bold;
+  font-size: 48px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.not-found-link {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0 20px;
+}
+
+.not-found-text {
+  max-width: 450px;
+  box-sizing: border-box;
+  padding: 0 40px;
+  margin-bottom: 80px;
+  font-size: 16px;
+  opacity: 0.7;
+  line-height: 24px;
+}
+
+.not-found-code {
+  font-size: 12px;
+  opacity: 0.54;
+  font-weight: normal;
+  font-style: italic;
+}

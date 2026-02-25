@@ -1,0 +1,46 @@
+@use "./bootstrap_vars.scss" as bs;
+
+#mirrors {
+  #download-link {
+    margin-bottom: 1em;
+  }
+}
+
+.index-issue {
+  #footerwrap {
+    background: transparent;
+  }
+  body {
+    background-color: black;
+    color: bs.$body-color-dark;
+    --bs-emphasis-color-rgb: white;
+    --bs-link-color: #{bs.$link-color-dark};
+    --bs-link-color-hover: #{bs.$link-hover-color-dark};
+    --bs-link-color-rgb: #{bs.to-rgb(bs.$link-color-dark)};
+    --bs-link-color-hover-rgb: #{bs.to-rgb(bs.$link-hover-color-dark)};
+  }
+}
+
+.sponsor-progress {
+  --bs-progress-height: 25px;
+  position: relative;
+  strong {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1em;
+    font-size: calc(var(--bs-progress-height) * 0.6);
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+}
+
+#upgrade-mask {
+  color: black;
+  p {
+    color: inherit;
+  }
+}
