@@ -1,5 +1,5 @@
 #!/bin/bash
-HOST=${1:-"mirrors.tuna.tsinghua.edu.cn"}
+HOST=${1:-"mirror.twds.com.tw"}
 
 echo "# robots.txt for https://$HOST" > robots.txt
 echo 'User-agent: *' >> robots.txt
@@ -14,6 +14,7 @@ echo 'Disallow: /logs' >> robots.txt
   echo "cygwin";
   echo "pub";
   echo "git";
+  echo "linuxbrew-bottles";
 ) | uniq | while read name; do
 	[[ -z ${name} ]] || [[ ${name} = "tuna" ]] && continue
 	echo "Disallow: /${name}" >> robots.txt
