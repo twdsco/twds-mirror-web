@@ -5,19 +5,18 @@
 
 {% capture page_desc %}{% if include.metaDesc %}{{ include.metaDesc }} | {% if include.cattitle %}{{ include.cattitle }} | {% endif %}{% endif %}{{ site.title }}{% endcapture %}
 {% capture page_title %}{% if page.mirrorid %} {{ page.mirrorid }} |{% elsif page.title %} {{ page.title }} |{% endif %}{% if include.cattitle %} {{ include.cattitle }} |{% endif %}{% if (page.title or include.cattitle) %}{{" "}}{% endif %}{{ site.title }}{% if site.brand %} | {{ site.brand }}{% endif %}{% endcapture %}
-{% capture page_url %}{% if include.url %}{{ include.url }}{% elsif page.url %}{{ page.url }}{% endif %}{% endcapture %}
 
 <meta name="description" content="{{ page_desc }}">
 <meta name="keywords" content="{{ site.keyword }}">
 <meta name="author" content="{{ site.author }}">
-<link rel="shortcut icon" href="{{ site.base }}/static/img/favicon.png">
+<link rel="shortcut icon" href="/static/img/favicon.png">
 <link rel="alternate" type="application/rss+xml" title="Mirror News" href="/feed.xml">
 
 <!-- Open Graph metadata -->
 <meta property="og:title" content="{{ page_title }}" />
 <meta property="og:description" content="{{ page_desc  }}" />
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/static/img/logo.png" /> <!-- WeChat requires that thumbnail image is larger than 300x300 -->
-<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page_url }}" />
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/static/img/logo.png" />
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 <meta property="og:locale" content="en_US" />
 {% if include.notArticle %}
 <meta property="og:type" content="website" />
@@ -31,19 +30,58 @@
 
 <title>{{ page_title }}</title>
 {% unless include.nostyle %}
-<link rel="stylesheet" href="{{ site.base }}/static/css/bootstrap.min.css?{{ site.data['hash'] }}">
-<link rel="stylesheet" href="{{ site.base }}/static/css/bootstrap-select.min.css?{{ site.data['hash'] }}">
-<link rel="stylesheet" href="{{ site.base }}/static/css/style.css?{{ site.data['hash'] }}">
-<script src="{{ site.base }}/static/js/jquery.min.js?{{ site.data['hash'] }}"></script>
-<script src="{{ site.base }}/static/js/bootstrap.min.js?{{ site.data['hash'] }}"></script>
-<script src="{{ site.base }}/static/js/bootstrap-select.min.js?{{ site.data['hash'] }}"></script>
-{% unless page.legacy %}
-<script src="{{ site.base }}/static/js/vue.min.js?{{ site.data['hash'] }}"></script>
-<script src="{{ site.base }}/static/js/timeago.min.js?{{ site.data['hash'] }}"></script>
-{% endunless %}
-<script src="{{ site.base }}/static/js/markup.min.js?{{ site.data['hash'] }}"></script>
-<script src="{{ site.base }}/static/js/webfont.js?{{ site.data['hash'] }}"></script>
-<script src="{{ site.base }}/static/js/thuhidden.js?{{ site.data['hash'] }}"></script>
+{% include vite_script.html %}
+<link rel="stylesheet" id="style-polyfill-bs3" title="style-polyfill-bs3" href="{% vite_asset_path bs3-polyfill.scss %}" media="screen" integrity="sha256-OnlyforlegacybrowsersAAAAAAAAAAAAAAAAAAAAAA=" />
+<script>
+  (function(){
+    var s = document.getElementById('style-polyfill-bs3');
+    if(s){
+      /*
+       We first test if the browser supports CSS variables. If it does, we
+        remove the style tag. If it doesn't, or it dosn't support the
+        CSS.supports at all, then ....
+      */
+      try {
+        if(!CSS.supports('color', 'var(--fake-var)')){
+          throw false;
+        }
+        s.disabled = true;
+        s.parentNode.removeChild(s);
+      }catch(e){
+        /*
+          We detect if the polyfill css is loaded. It will not be loaded
+            if the browser supports content integrity.
+        */
+        var found = 0;
+        for(var i = 0; i < document.styleSheets.length; i++){
+          if(document.styleSheets[i].title === s.title){
+            found = 1;
+            break;
+          }
+        }
+        if(!found){
+          var s2 = s.cloneNode();
+          s2.integrity = "";
+          document.head.appendChild(s2);
+        }
+      }
+      /*
+        So the cases are:
+        - Old browsers that cannot run the script before:
+          - They will not support content integrity and will load the
+            polyfill css.
+        - Old browsers that can run the script before, but do not support
+          content integrity:
+          - They will load the polyfill css. and the script before do nothing
+        - Old browsers that support content integrity but do not support
+          CSS variables:
+          - The before script will load the polyfill css.
+        - Modern browers with script disabled:
+          - Content integrity will prevent them from loading the polyfill.
+      */
+    }
+  })();
+</script>
 {% if page.legacy %}
 <style>
 .container {

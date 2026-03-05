@@ -1,5 +1,6 @@
 ---
 permalink: /404.html
+jsEntry: notfound
 ---
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,7 @@ permalink: /404.html
   <body>
     {% include nav.html %}
     <div id="mirrors">
-      <div class="spacing hidden-xs"></div>
+      <div class="spacing d-none d-sm-block"></div>
       <div class="container">
         <div class="row">
           <div class="not-found">
@@ -24,6 +25,10 @@ permalink: /404.html
               {% endif %}
             </div>
             <div class="not-found-text thuhidden">
+              <p>
+              Note: If you obtained this link from an AI assistant or LLM, the file may not actually exist. Please verify carefully.
+              </p>
+              <p>
               If you think there might be something wrong, welcome to
               <a href="https://github.com/twdsco/twds-mirror-web/issues/new/choose">
                 {% fa_svg fab.fa-github %} twdsco/twds-mirror-web
@@ -32,6 +37,7 @@ permalink: /404.html
 							<a href="https://github.com/twdsco/twds-mirror-web/issues/new?labels=Service+Issue,404&template=2-bug_report.md" id="new_issue_bug">error report</a>
 							or
 							<a href="https://github.com/twdsco/twds-mirror-web/issues/new?labels=MirrorRequest&template=1-mirror_request.md" id="new_issue_mr">mirror request</a>
+              </p>
             </div>
             <div class="not-found-links">
               <a class="not-found-link" href="javascript:history.back()">
@@ -46,21 +52,6 @@ permalink: /404.html
       </div><!--/container -->
     </div><!--/mirrors -->
     {% include footer.html %}
-    <script type="application/javascript">
-      (function(){
-        var tag = "[" + "{{ site.issue_tag }}" + "]";
-        var bugLink = document.getElementById("new_issue_bug");
-        var bugURL = new URL(bugLink.href);
-        bugURL.searchParams.append("title", tag + "404 at " + location.pathname);
-        bugLink.href = bugURL.href;
-        
-        var mrLink = document.getElementById("new_issue_mr");
-        var mrURL = new URL(mrLink.href);
-        mrURL.searchParams.append("title", tag + "Mirror Request for new mirror " +
-          location.pathname.split('/')[1]);
-        mrLink.href = mrURL.href;
-      })();
-    </script>
   </body>
 </html>
 <!--

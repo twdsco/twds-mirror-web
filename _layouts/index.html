@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html {% if site.issue %}class="index-issue"{% endif %} lang="en">
 	{% include head.html notArticle=true %}
 	<body>
 		{% unless page.legacy or site.issue %}
@@ -7,18 +7,18 @@
 		{% endunless %}
 		{% include nav.html %}
 		<div id="mirrors">
-			<div class="spacing hidden-xs"></div>
+			<div class="spacing d-none d-sm-block"></div>
 			<div class="container">
 				<div class="row">
 					{% if site.issue %}
-					<div class="col-{% if page.legacy %}xs{% else %}md{% endif %}-12 table-responsive">
+					<div class="col-{% if page.legacy %}xs{% else %}lg{% endif %}-12 table-responsive">
 						<div class="alert text-center" id="cover-alert">
 							<h1>{{ site.school }} Open Source Mirror Site</h1>
 							<h3>Service Temporarily Unavailable</h3>
-							<div class="pull-right">
-								<img src="{{ site.base }}/static/img/candle.jpg"
-									srcset="{{ site.base }}/static/img/candle.jpg 1x,
-													{{ site.base }}/static/img/candle@2x.jpg 2x"
+							<div class="text-end">
+								<img src="/static/img/candle.jpg"
+									srcset="/static/img/candle.jpg 1x,
+													/static/img/candle@2x.jpg 2x"
 								/>
 							</div>
 							<div class="clearfix"></div>
@@ -31,81 +31,18 @@
 				</div>
 				<div class="row">
 					{% else %}
-					<div class="col-{% if page.legacy %}xs{% else %}md{% endif %}-8 table-responsive" id="mirror-list">
-						<div class="row">
-							<div class="col-xs-6 col-sm-8">
-								<h3 id="mirror-title">{% fa_svg fas.fa-cube %} Mirror List </h3>
-							</div>
-							<div class="col-xs-6 col-sm-4">
-								{% unless page.legacy %}
-								<input type="search" class="form-control" v-model.trim="filter" id="search" ref="search" placeholder="Press / to search" autocomplete="off">
-								{% endunless %}
-							</div>
-						</div>
-						<table class="table" v-if="mirrorList.length">
-							<thead>
-								<tr class="row">
-									<th class="col-{% if page.legacy %}xs{% else %}sm{% endif %}-8">Name</th>
-									<th class="col-{% if page.legacy %}xs{% else %}sm{% endif %}-4">Last Update</th>
-								</tr>
-							</thead>
-							<tbody>
-								{% if page.legacy %}
-								{% raw %}
-								{{mirs}}
-								<tr class="row status-{{status}}">
-									<td>
-										<a class="mirror-item-label" href="{{url}}" title="{{description}}">
-											{{name}}
-										</a>
-										{{if is_new}}
-										<span class="label label-new">new</span>
-										{{/if}}
-									</td>
-									<td>
-										{{last_update}}{{if show_status}}<span class="label label-status {{label}}">{{status}}</span>{{/if}}
-									</td>
-								</tr>
-								{{/mirs}}
-								{% endraw %}
-								{% else %}
-								{% raw %}
-								<tr v-for="mir in filteredMirrorList" :class="['row', 'status-'+mir.status]" :key="mir.name">
-									<td class="col-md-8">
-										<a class="mirror-item-label"  data-toggle="popover" data-trigger="hover" data-placement="right"
-											:data-content="mir.description" :href="getURL(mir)" :aria-label="mir.name + ', ' + mir.description">
-											{{mir.name}}
-											<span class="label label-new" v-if="mir.is_new">new</span>
-											<a v-if="mir.github_release" href="javascript:void(0)"><i aria-hidden="true" title="GitHub Release">{% endraw %}{% fa_svg fab.fa-github %}{% raw %}</i><span class="sr-only">[GitHub Release]</span></a>
-										</a>
-										<img v-if="mir.official" src="/static/img/official.svg" />
-									</td>
-									<td class="col-md-4">
-										{{mir.last_update}}<span v-if="mir.show_status" :class="['label', 'label-status', mir.label, 'hidden-xs']">{{mir.status}}</span>
-									</td>
-								</tr>
-								{% endraw %}
-								{% endif %}
-							</tbody>
-						</table>
-						{% unless page.legacy %}
-						<div v-else class="sk-wave">
-							<div class="sk-rect sk-rect1"></div>
-							<div class="sk-rect sk-rect2"></div>
-							<div class="sk-rect sk-rect3"></div>
-							<div class="sk-rect sk-rect4"></div>
-							<div class="sk-rect sk-rect5"></div>
-						</div>
-						{% endunless %}
+					<div id="mirror-list" class="col-lg-8 {% if include.legacy %}col-8{% else %}col-12{% endif %} table-responsive">
+						{% if page.legacy %}
+							{% include main-mirror-list.html legacy=true %}
+						{% endif %}
+						<!--{% fa_svg fas.fa-cube %}{% fa_svg fas.fa-circle-question %}{% fa_svg fab.fa-github %}-->
 					</div>
 					{% endif %}
 					{% unless site.issue %}
-					<div class="col-md-4">
-						<div class="spacing hidden-xs"></div>
-						<div id="wizard">
-						</div>
+					<div class="col-lg-4 {% if page.legacy %}col-4{% else %}col-12{% endif %}">
+						<div class="spacing d-none d-lg-block"></div>
 					{% endunless %}
-						<div class="thuhidden {%if site.issue%}col-md-4{%endif%}">
+						<div class="thuhidden {%if site.issue%}col-lg-4{%endif%}">
 							<h4> {% fa_svg fas.fa-link %} Domain Selection </h4>
 							<ul>
 								<li><a href="{{ site.url }}">{{ site.url }}</a> Automatic </li>
@@ -120,25 +57,25 @@
 						{% unless page.legacy or site.hide_download or site.issue %}
 						<div id="download-link">
 							<h4>{% fa_svg far.fa-file-zipper %} Download Link </h4>
-							<p>Common Distribution ISO & Application Install Package Direct Download</p>
-							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#isoModal">
+							<p>Common Distribution ISO & Application Install Package Direct Download:</p>
+							<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#isoModal">
 								Get Download Link
 							</button>
 						</div>
 						{% endunless %}
-						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}" id="gold-sponsors">
+						<div class="thuhidden {%if site.issue%}col-lg-3{%endif%}" id="gold-sponsors">
 							<h4> {% fa_svg far.fa-thumbs-up %} Sponsor </h4>
-							<div class="thumbnail" style="max-width: 70%;padding: 3% 5%;background-color: white;">
-								<img src="{{ site.base }}/static/img/sky.png" alt="Sky Digital Co., Ltd.">
+							<div class="card mb-2" style="max-width: 70%;padding: 3% 5%;background-color: white;">
+								<img class="img-fluid" src="/static/img/sky.png" alt="Sky Digital Co., Ltd.">
 							</div>
-							<div class="thumbnail" style="max-width: 70%;background-color: white;">
-								<img src="{{ site.base }}/static/img/twds_text_standard.svg" alt="Taiwan Digital Streaming Co.">
+							<div class="card mb-2" style="max-width: 70%;background-color: white;">
+								<img class="img-fluid" src="/static/img/twds_text_standard.svg" alt="Taiwan Digital Streaming Co.">
 							</div>
-							<div class="thumbnail" style="max-width: 70%;padding: 5% 0;background-color: white;">
-								<img src="{{ site.base }}/static/img/yuanjhen.svg" alt="YUAN JHEN Info. Co. Ltd">
+							<div class="card mb-2" style="max-width: 70%;padding: 5% 0;background-color: white;">
+								<img class="img-fluid" src="/static/img/yuanjhen.svg" alt="YUAN JHEN Info. Co. Ltd">
 							</div>
 						</div>
-						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}" id="sponsors">
+						<div class="thuhidden {%if site.issue%}col-lg-3{%endif%}" id="sponsors">
 							<h4> {% fa_svg far.fa-heart %} Personal Sponsor </h4>
 							{% if page.legacy %}
 							{% raw %}
@@ -147,49 +84,42 @@
 								<li><strong>{{ . }}</strong>
 								{{/sponsors.names}}
 							</ul>
-							<div class="progress sponsor-progress" style="height: var(--sponsor-progress-height);">
-								<div class="progress-bar progress-bar-success" style="width: {{sponsors.progress}}%;">
+							<div class="progress sponsor-progress mb-3" style="--bs-progress-height: 1.5rem;">
+								<div class="progress-bar bg-success" style="width: {{sponsors.progress}}%;">
 									<strong>{{ sponsors.totalFormated }}/{{ sponsors.targetFormated }} TWD ({{ sponsors.progressText }}%)</strong>
 								</div>
 							</div>
 							{% endraw %}
 							{% else %}
-							<ul v-if="sponsors.names.length">
-								<li v-for="sponsor in sponsors.names"><strong>{% raw %}{{ sponsor }}{% endraw %}</strong>
-							</ul>
-							{% raw %}
-							<div class="progress sponsor-progress" style="height: var(--sponsor-progress-height);">
-								<div class="progress-bar progress-bar-success" v-bind:style="{width: sponsors.progress + '%'}">
-									<strong>{{ sponsors.totalFormated }}/{{ sponsors.targetFormated }} TWD ({{ sponsors.progressText }}%)</strong>
-								</div>
-							</div>
-							{% endraw %}
+							<div id="sponsors-app"></div>
 							{% endif %}
-							<a href="https://buy.stripe.com/aEU03a3TwgUi1QkeUV" target="_blank"><button type="button" class="btn btn-success btn-lg btn-block">Sponsor Now</button></a>
+							<a href="https://buy.stripe.com/aEU03a3TwgUi1QkeUV" target="_blank"><button type="button" class="btn btn-success btn-lg w-100">Sponsor Now</button></a>
 						</div>
-						<div class="thuhidden {%if site.issue%}col-md-3{%endif%}">
+						<div class="thuhidden {%if site.issue%}col-lg-3{%endif%}">
 							<h4> {% fa_svg far.fa-envelope %} Contact Us </h4>
 							<ul>
 								<li><strong>Feedback</strong> <br /> <a href="https://github.com/twdsco/twds-mirror-web/issues">https://github.com/twdsco/twds-mirror-web/issues</a></li>
 								<li><strong>Send Email</strong> <br /> <a class="eib1gieB"></a></li>
 							</ul>
 						</div>
-						<div {%if site.issue%}class="col-md-2"{%endif%}>
+						<div {%if site.issue%}class="col-lg-2"{%endif%}>
 							<h4> {% fa_svg fas.fa-arrow-up-right-from-square %} Related Links </h4>
 							<ul>
 								{% unless site.issue %}
 								{% unless site.hide_server_status %}
-								<li><a href="{{ site.base }}/status/#server-status">Server Status</a></li>
+								<li><a href="/status/#server-status">Server Status</a></li>
 								{% endunless %}
-								<li><a href="{{ site.base }}/status/#syncing-status">Sync Status</a></li>
+								<li><a href="/status/#syncing-status">Sync Status</a></li>
 								{% endunless %}
 								<li><a href="https://github.com/tuna/tunasync">Mirror Manager</a></li>
 							</ul>
 						</div>
 						{% unless site.hide_mirrorz %}
-						<div class="thuhidden {%if site.issue%}col-md-2{%endif%}">
+						<div class="thuhidden {%if site.issue%}col-lg-2{%endif%}">
 							<h4> {% fa_svg fas.fa-paperclip %} Useful Links </h4>
-							<p><a href="{{ site.mirrorz_link }}">{{ site.mirrorz_desc }}</a></p>
+							<ul>
+								<li><a href="{{ site.mirrorz_link }}">{{ site.mirrorz_desc }}</a></li>
+							</ul>
 						</div>
 						{% endunless %}
 					{% unless site.issue %}
@@ -202,57 +132,10 @@
 		{% unless page.legacy or site.issue %}
 		<!-- iso download wizard modal -->
 		<!-- Modal -->
-		{% raw %}
 		<div class="modal fade" id="isoModal" tabindex="-1" role="dialog" aria-labelledby="isoModalLabel" aria-hidden="true">
-		  <div class="modal-dialog modal-lg" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		        <h4 class="modal-title" id="isoModalLabel">Get Install Images</h4>
-		      </div>
-		      <div class="modal-body">
-					<div class="row" v-if="availableCategories.length > 0">
-						<div class="col-md-12">
-							<ul class="nav nav-tabs">
-								<li role="presentation"
-									v-for="cat in availableCategories"
-									:class="[curCategory === cat ? 'active' : '']"
-									@click="switchCategory(cat)"
-								>
-									<a href="#">{{ knownCategories[cat] ? knownCategories[cat] : cat  }}</a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<ul class="nav nav-pills nav-stacked">
-								<li v-for="distro in curDistroList" :class="[selected.distro == distro.distro ? 'active' : '']">
-									<a href="#" @click="switchDistro(distro)">{{ distro.distro }}</a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-9">
-							<h3>{{selected.distro}}</h3>
-							<ul>
-								<template v-for="url in selected.urls">
-								<li><a :href="url.url">{{url.name}}</a></li>
-								</template>
-							</ul>
-						</div>
-					</div>
-		      </div>
-		    </div>
-		  </div>
 		</div><!-- /iso download wizard modal -->
-		{% endraw %}
 		{% endunless %}
 	</body>
-	{% raw %}
-	{% endraw %}
-	{% unless page.legacy or site.issue %}
-	<script src="{{ site.base }}/static/js/index.js?{{ site.data['hash'] }}"></script>
-	{% endunless %}
 </html>
 <!--
 	vim: ts=2 sts=2 sw=2 noexpandtab
